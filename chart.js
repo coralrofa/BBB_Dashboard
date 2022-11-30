@@ -96,21 +96,47 @@ function buildCharts(sample) {
       y: yticks,
       type: "bar",
       orientation: "h",
-      text: labels 
+      text: labels, 
     }];
     
     // 9. Create the layout for the bar chart. 
     var barLayout = {
-      title: "Top 10 Bacteria Strains Found in the Human BellyButton"
+      title: "Top 10 Bacteria Strains from the Human BellyButton"
     };
 
     // 10. Use Plotly to plot the data with the layout. 
     
     Plotly.newPlot("bar", barData, barLayout);
 
-// Deliverable 2
+    // Deliverable 2
 
+    // Bar and Bubble charts
+    // Create the buildCharts function.
 
+    // 1. Create the trace for the bubble chart.
+    var bubbleData = [{
+      x: otuids,
+      y: value,
+      text: labels,
+      mode: "markers",
+      marker: {
+        size:value,
+        color: value, 
+        colorscale:'YlGnBu'
+      }
+    }];
 
+    // 2. Create the layout for the bubble chart.
+    var bubbleLayout = {
+      title: "Bacteria Cultures per Sample",
+      xaxis:{tittle: "OTU ID"},
+
+    };
+
+    // 3. Use Plotly to plot the data with the layout.
+    Plotly.newPlot("bubble", bubbleData, bubbleLayout); 
   });
 }
+
+
+ 
